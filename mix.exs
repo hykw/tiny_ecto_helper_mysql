@@ -1,13 +1,21 @@
-defmodule TinyEctoHelperMysql.MixProject do
+defmodule TinyEctoHelperMySQL.MixProject do
   use Mix.Project
+
+  @version "1.0.0"
+  @link "https://github.com/hykw/tiny_ecto_helper_mysql"
 
   def project do
     [
       app: :tiny_ecto_helper_mysql,
-      version: "0.1.0",
-      elixir: "~> 1.7",
-      start_permanent: Mix.env() == :prod,
-      deps: deps()
+      version: @version,
+      elixir: "~> 1.6",
+      deps: deps(),
+
+      # hex
+      description: "Tiny Ecto Helper for MySQL",
+      package: package(),
+      source_url: @link,
+      homepage_url: @link
     ]
   end
 
@@ -21,8 +29,18 @@ defmodule TinyEctoHelperMysql.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:ecto, ">= 0.0.0"},
+      {:ecto_sql, ">= 0.0.0"}
+    ]
+  end
+
+  defp package do
+    [
+      maintainers: ["Hitoshi Hayakawa"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => @link},
+      files: ~w(lib mix.exs README.md)
     ]
   end
 end
