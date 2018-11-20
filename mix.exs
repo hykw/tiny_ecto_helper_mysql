@@ -1,7 +1,7 @@
 defmodule TinyEctoHelperMySQL.MixProject do
   use Mix.Project
 
-  @version "1.0.0"
+  @version "1.0.1"
   @link "https://github.com/hykw/tiny_ecto_helper_mysql"
 
   def project do

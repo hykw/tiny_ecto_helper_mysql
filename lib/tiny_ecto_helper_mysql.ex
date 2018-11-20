@@ -121,7 +121,10 @@ defmodule TinyEctoHelperMySQL do
         end)
 
       # call validation just in case.
-      true = model.changeset(struct, key).valid?
+      if not model.changeset(struct, key).valid? do
+        raise "validation error: #{model}"
+      end
+
       Map.merge(struct, key)
     end)
   end
